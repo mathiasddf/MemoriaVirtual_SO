@@ -1,0 +1,31 @@
+SIMULADOR DE MEMORIA VIRTUAL - C++17
+Referencias: 1, 2, 3, 1, 4, 1, 2
+Marcos de RAM: 3
+
+ALGORITMO FIFO
+Paso  Pagina  Marcos RAM   Estado     Reemplaza
+------------------------------------------------
+   1       1  [1 - -]  FALLO     -
+   2       2  [1 2 -]  FALLO     -
+   3       3  [1 2 3]  FALLO     -
+   4       1  [1 2 3]  ACIERTO   -
+   5       4  [4 2 3]  FALLO     P1
+   6       1  [4 1 3]  FALLO     P2
+   7       2  [4 1 2]  FALLO     P3
+Fallos de pagina: 6
+Aciertos: 1
+Tasa de fallos: 85.71%
+
+ALGORITMO LRU
+Paso  Pagina  Marcos RAM   Estado     Reemplaza
+------------------------------------------------
+   1       1  [1 - -]  FALLO     -
+   2       2  [1 2 -]  FALLO     -
+   3       3  [1 2 3]  FALLO     -
+   4       1  [1 2 3]  ACIERTO   -
+   5       4  [1 4 3]  FALLO     P2
+   6       1  [1 4 3]  ACIERTO   -
+   7       2  [1 4 2]  FALLO     P3
+Fallos de pagina: 5
+Aciertos: 2
+Tasa de fallos: 71.43%
